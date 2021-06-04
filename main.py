@@ -81,11 +81,17 @@ def make_video(fps=30, delete=False, opening_pause=0):
     video.release()
 
 
-# gray_values[y][x] = int((val / (iterations - 1)) * 255)
-# mandelbro_center = (-0.75, 0)  cool place = (-0.7372487018448656, +0.16241004623239993), 5**6
-# mandelbro_size = 3.5x3.5
+# to get gray variation paste the line below in main>render by remplacing this line -> (values[y][x] = (val * 60) % 255)
+# values[y][x] = int((val / (iterations - 1)) * 255)
+
+# mandelbro_center : (-0.75, 0)
+# mandelbro_size : 3.5x3.5
+
 if __name__ == '__main__':
+    # This is if you want to render a single image (works the same way as create_to below
     # Image.fromarray(render(150000, (-1.941571999362835, 0.000143 41225180058430), 5**19), 'L').show()
-    create_to(150000, (-1.941571999362835, 0.00014341225180058430), 5**19, 3088)
+    
+    # Max iterations / (x, y) / end zoom / frame you are starting at (if you close the program so you dont start from the beginning everytime)
+    create_to(150000, (-1.941571999362835, 0.00014341225180058430), 5**19, 0)
     make_video(delete=True, opening_pause=2)
     input("press enter to exit ...")
